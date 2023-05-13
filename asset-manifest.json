@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/vr-training/static/css/main.750ff0ff.css",
+    "main.js": "/vr-training/static/js/main.489f7a32.js",
+    "static/js/787.959220f7.chunk.js": "/vr-training/static/js/787.959220f7.chunk.js",
+    "static/media/homeTop.jpg": "/vr-training/static/media/homeTop.74868002f1e230ac69ef.jpg",
+    "static/media/body.jpg": "/vr-training/static/media/body.50c0522a2c34df376552.jpg",
+    "static/media/haania.png": "/vr-training/static/media/haania.3a0b1e08b92e0d2ae873.png",
+    "static/media/speech.jpg": "/vr-training/static/media/speech.c9369bde4af0ccdb5c1d.jpg",
+    "static/media/vr.jpg": "/vr-training/static/media/vr.7d7469fa5baaefd0f19c.jpg",
+    "static/media/aliza.png": "/vr-training/static/media/aliza.6b5a2973f7e141d0c7cb.png",
+    "static/media/graphs.jpg": "/vr-training/static/media/graphs.7ffff610f476a617c52e.jpg",
+    "static/media/heart.jpg": "/vr-training/static/media/heart.222cac7607b480d143e3.jpg",
+    "static/media/sadaf.png": "/vr-training/static/media/sadaf.ff800500727bca428acd.png",
+    "static/media/batool.png": "/vr-training/static/media/batool.7e8344ac8dbe64be0dbb.png",
+    "static/media/boxicons.svg": "/vr-training/static/media/boxicons.9e2b21b135bc7d4c803f.svg",
+    "static/media/hafsa.png": "/vr-training/static/media/hafsa.468a5734804cd481f1bf.png",
+    "static/media/boxicons.eot": "/vr-training/static/media/boxicons.65a8ce52fc5427e8f94d.eot",
+    "static/media/app_2.png": "/vr-training/static/media/app_2.54b696123ca4b03c89c4.png",
+    "static/media/boxicons.woff": "/vr-training/static/media/boxicons.d12afc36557395143e4b.woff",
+    "static/media/boxicons.ttf": "/vr-training/static/media/boxicons.db9ddb1898dbd76badca.ttf",
+    "static/media/boxicons.woff2": "/vr-training/static/media/boxicons.df635aaf04cd75132f62.woff2",
+    "static/media/ps_guide.pdf": "/vr-training/static/media/ps_guide.352902796c1dc75de94d.pdf",
+    "static/media/oculus2.png": "/vr-training/static/media/oculus2.9da5e8f514d060b81373.png",
+    "static/media/screens.png": "/vr-training/static/media/screens.fe8a15dc91eb5a165ac7.png",
+    "static/media/bg.png": "/vr-training/static/media/bg.c0c4a5c83458c88cdfc3.png",
+    "static/media/logo2.png": "/vr-training/static/media/logo2.e605f79687ca6714d1d4.png",
+    "index.html": "/vr-training/index.html",
+    "static/media/rightarrows.svg": "/vr-training/static/media/rightarrows.04b3f9f8c5396ea0b975e8bb41d9d3ff.svg",
+    "main.750ff0ff.css.map": "/vr-training/static/css/main.750ff0ff.css.map",
+    "main.489f7a32.js.map": "/vr-training/static/js/main.489f7a32.js.map",
+    "787.959220f7.chunk.js.map": "/vr-training/static/js/787.959220f7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.750ff0ff.css",
+    "static/js/main.489f7a32.js"
+  ]
+}

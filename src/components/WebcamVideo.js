@@ -19,9 +19,21 @@ export default function WebcamVideo() {
 
   const [sessionEnded, setSessionEnded] = useState(0);
 
+  // const videoConstraints = {
+  //   width: 1000,
+  //   height: 1000,
+  //   facingMode: "user",
+  // };
+
+  // const videoConstraints = {
+  //   width: window.innerWidth <= 600 ? 400 : 1000,
+  //   height: window.innerWidth <= 600 ? 400 : 1000,
+  //   facingMode: "user",
+  // };
+
   const videoConstraints = {
-    width: 600,
-    height: 300,
+    width: window.innerWidth * 0.75,
+    height: window.innerHeight * 0.75,
     facingMode: "user",
   };
 
@@ -34,7 +46,28 @@ export default function WebcamVideo() {
     ({ data}) => {
       if (data.size > 0) {
         setRecordedChunks((prev) => prev.concat(data));
-      }
+        console.log(data)
+        // increment the frame number
+        const formData = new FormData();
+            // formData.append("videoFrame", );
+        
+        formData.append("videoFrame", data);
+            // send the form data to the backend
+            axios.post("http://127.0.0.1:5001/data", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+                params: {
+                  sessID: currSessidRef.current.currSessId,
+                },
+              })
+              .then(function (response) {
+                console.log("resp", response);
+              })
+              .catch(function (error) {
+                console.log("error", error);
+              });
+        }
     },
     [setRecordedChunks]
   );
@@ -117,11 +150,10 @@ export default function WebcamVideo() {
 
   /* sends user and sess id to backend */
   // useEffect(()=>{
-  //   console.log("ls", liveSession)
   //   if(liveSession==false){
-  //     axios.post('http://127.0.0.1:5000/data', {
+  //     axios.post('http://127.0.0.1:5001/data/', {
   //       sessID: currSessidRef.current.currSessId,
-  //       // userID: user?.uid
+  //       userID: user?.uid
   //     })
   //     .then(function(response) {
   //       console.log('resp',response);
@@ -131,6 +163,8 @@ export default function WebcamVideo() {
   //     });
   //   }
   //  }, [liveSession]);
+   
+
 
   /*  Gets current user's doc - gets latest training sess id from it - 
   constantly listens for session value in that sess doc  */
@@ -145,13 +179,23 @@ export default function WebcamVideo() {
     }
 
     // if session value changes
-    if (JSON.stringify(currSessidRef.current.currSessId) !== '[]' && currSessidRef.current.currSessId!= false ){
-      const unsub = onSnapshot(doc(db, "training_sessions", currSessidRef.current.currSessId), (doc) => {
-        console.log("[Video ] Current Session Value: ", doc.data().session)
-        setliveSession(doc.data().session)
-      }) 
-    }
+    // if (JSON.stringify(currSessidRef.current.currSessId) !== '[]' && currSessidRef.current.currSessId!= false ){
+    //   const unsub = onSnapshot(doc(db, "training_sessions", currSessidRef.current.currSessId), (doc) => {
+    //     console.log("[Video ] Current Session Value: ", doc.data().session)
+    //     setliveSession(doc.data().session)
+    //   }) 
+    // }
     }, [currSessidRef.current.currSessId, liveSession]);
+
+    useEffect(() => {
+      // if session value changes
+      if (JSON.stringify(currSessidRef.current.currSessId) !== '[]' && currSessidRef.current.currSessId!= false ){
+        const unsub = onSnapshot(doc(db, "training_sessions", currSessidRef.current.currSessId), (doc) => {
+          console.log("[Video ] Current Session Value: ", doc.data().session)
+          setliveSession(doc.data().session)
+        }) 
+      }
+      }, [currSessidRef.current.currSessId,liveSession]);
 
   /* automatically starts and stops video */
   useEffect(() => {
@@ -164,12 +208,14 @@ export default function WebcamVideo() {
     }
   }, [webcamRef, liveSession]);
 
+  const padding = window.innerWidth <= 768 ? '6%' : window.innerWidth <= 1000 ? '3%' : '0%';
+
 
   return (
-    <div className="Container centerText">
-      {(capturing && !sessionEnded) ? (<><p className="bold purple">Recording has started</p></>) : null}
-      {/* {true ? (<><p className="bold purple">Recording is going on</p></>) : null} */}
-      {(!capturing && sessionEnded) ? (<><p className="bold purple">Recording has stopped</p></>) : null}
+    <div className="Container centerText" style={{marginTop:'8%'}}>
+      {(capturing && !sessionEnded) ? (<><p className="bold purple" style={{paddingTop:padding}}>Recording has started</p></>) : null}
+      {/* {true ? (<><p className="bold purple" style={{paddingTop:padding}}>Recording is going on</p></>) : null} */}
+      {(!capturing && sessionEnded) ? (<><p className="bold purple" style={{paddingTop:padding}}>Recording has stopped</p></>) : null}
       <Webcam
         audio={false}
         mirrored={true}

@@ -309,7 +309,7 @@ li {
 
 .sub-menu-wrap {
   position: absolute;
-  top : 5.5%;
+  top : 51.47px;
   right : 2%;
   width: 180px;
   max-height: 0px;
@@ -322,14 +322,25 @@ li {
 }
 
 .sub-menu {
+  /* background-color: #8C8FFC;
+  color : white; */
   background-color: white;
   padding: 20px;
   margin: 10px;
-  border-radius: 10%;
+  /* border-radius: 0% 0% 10% 10%; */
   /* border: 1px solid rgb(99, 98, 98); */
-  box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2); */
+  box-shadow:0 3px 6px 0 rgba(200, 200, 200, 0.7) ;
+-moz-box-shadow:0 3px 6px 0 rgba(200, 200, 200, 0.7) ;
+-webkit-box-shadow:0 3px 6px 0 rgba(200, 200, 200, 0.7) ;
+-khtml-box-shadow:0 3px 6px 0 rgba(200, 200, 200, 0.7) ;
+border-top: 0;
 }
 
+
+/* .sub-menu a{
+  color: white;
+} */
 
 
 /* .open-menu-right {
@@ -485,13 +496,33 @@ li {
   margin-right: 20px;
 }
 
+.home-header-center {
+  color : whitesmoke !important;
+}
+
+.home-heading {
+  color : white !important;
+}
+
 @media only screen and (max-width: 600px) {
   .about-content {
     text-align: center;
   }
   .home-header-center {
     text-align: center;
+    color : black !important;
   }
+  .hero-img {
+    margin-top: 0; 
+    transform: translateY(-30%);
+  }
+  .scrollto {
+    border-color : black !important;
+    color : black !important;
+  }
+  /* main {
+    margin-top: -50px;
+  } */
 }
 
 @media only screen and (max-width: 600px) {
@@ -543,6 +574,19 @@ li {
   width: 100%;
   text-align: center;
   z-index : 6;
+}
+
+.nab {
+  background: #fff;
+  /* padding: 24px 0; */
+  /* font-size: 14px; */
+  box-shadow: 0px 0 20px 0 rgba(0, 0, 0, 0.12);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index : 9;
 }
 
 .centerText {
@@ -1098,11 +1142,12 @@ h6 {
   border-radius: 50px;
   transition: 0.5s;
   color: #8C8FFC;
-  border: 2px solid #8C8FFC;
+  border: 2px solid white;
 }
 
 #hero .btn-get-started:hover {
   background: #8C8FFC;
+  border-color : #8C8FFC;
   color: #fff;
 }
 
@@ -1201,7 +1246,16 @@ section {
   content: "";
   width: 50px;
   height: 2px;
-  background: #8C8FFC;
+  /* background: #8C8FFC; */
+  display: inline-block;
+}
+
+.more-details h2::before,
+.more-details h2::after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background : none !important;
   display: inline-block;
 }
 
@@ -2353,44 +2407,3 @@ a:hover, button:hover, .darrow:hover {
 .marginPlus {
   margin-right: 2%;
 }
-
-/* .menu-icon {
-  display: none;
-}
-
-@media (max-width: 600px) {
-
-  .profile {
-    display : hidden !important;
-  }
-
-  .menu-icon {
-    display: block;
-    cursor: pointer;
-  }
-
-  .nab-right {
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background-color: white;
-    width: 0px;
-    height: 100%;
-    transition: all 0.3s ease-in;
-    overflow: hidden;
-  }
-
-  .nab-right.active {
-    width: 270px;
-  }
-
-  .nab-right .nab-right-inner {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nab-right .nab-right-inner a {
-    margin-right: unset;
-    margin-top: 10px;
-  }
-} */
